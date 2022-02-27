@@ -3,10 +3,14 @@ use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion};
 
 pub fn bench_all(c: &mut Criterion) {
     let input = [
-        "AD",           // first item in the match
+        "AD",                                                                  // first item in the match
         "PK",           // middle item in the match
         "J07BX03",      // last item in the match
         "MISSING_ITEM", // default branch in the match
+        "PI",           // a middle miss in the match
+        "1119349007",   // second last with a first char matches
+        "AH",           // early miss
+        "AHHHHHHHHHHHHHHHHHHHHHHHA-Alan-Patridige-knowing-me-knowing-you-AHA", // early miss
     ];
 
     let mut group = c.benchmark_group("match_vs_phf");
